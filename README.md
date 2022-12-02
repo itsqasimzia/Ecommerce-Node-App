@@ -1,53 +1,33 @@
-Authentication And Basic Crud Application With Mongoose JWT ExpressJS
+### Intro
+Eommerce website using Node js, Express js, and Mongoose.
+### Features
 
-Write APIs to perform operations on the table todo, with the following columns,
+- Expressjs
+- mongodb/mongoose
+- joi 
+- Socket.io
+- Twilio
+- JWT
+- sessions
+- express-flash
+- multer
+- ejs
+- bootstrap
 
-Todo Table
-```
-Columen   Type
-id	Objectid
-task	 String
-image	String
-users	Array
-TimeStamp true
+##Run
 
-```
-Replace the Envoirenment Variables With Your Own.
+To run this application, you have to set your own environmental variables. For security reasons, some variables have been hidden from view and used as environmental variables with the help of dotenv package. Below are the variables that you need to set in order to run the application:
 
+PORT:http://localhost:8000/
 
-Possible values for priority are USER, ADMIN, and GUEST.
-User Should Create Account Through Registration Form.
-After Login JWT Tokens Are Assigned To The User Which Will Have Short Live After The WIll Expires and user have to login again (For Testing Purpose)
-ACCESS_TOKEN && Refresh Token 
-The user may request and perform Create, Read, Update operations on the database.
+- MONGODB_URI: this is the connection string of your MongoDB Atlas database.
+- SESSION_SECRET: a secret message for the session. You can use any string here.
+### TWILIO
+	- TWILIO_AUTH_TOKEN
+	- TWILIO_SERVICE_ID
+	- TWILIO_ACCOUNT_SID
+	- TWILIO_PHONE_NO
+### JWT
+	- ACCESS_TOKEN_SECRET
+	- REFRESH_TOKEN_SECRET
 
-
-###Invalid scenarios for all APIs
-
-#Invalid Status
-
-**Response**
-Status code
-401
-Un-Authorized
-Access Token Not Attached With Request
-
-**Response**
-Status code
-400
-Invalid or Empty Fields
-
-**Response**
-Status code
-201
-After Success 
-
-
-
-
-Use npm install to install the packages.
-** server port : 8000 **
-
-Export the express instance using the default export syntax.
-
-Use Common JS module syntax.
