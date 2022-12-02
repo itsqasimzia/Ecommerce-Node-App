@@ -1,0 +1,42 @@
+<div class="container bg-secondary ">
+  <div class="row d-flex flex-row justify-content-between" >
+    <div class="col-3">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">< E-Shop ></a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-9 d-flex flex-row justify-content-end">
+      <ul class="nav">
+        <% if (isAdmin) { %>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/inventory/product/add">Product</a>
+          </li>
+          <%} else { %>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/">Home</a>
+            </li>
+          <% } %>
+
+        <li class="nav-item">
+        <% if (!isAdmin && cart && cart.length > 0) { %>
+            <a href="/cartlist" class="nav-link cartcontainer">
+              <i class=" fa-solid fa-cart-shopping text-white" ></i>
+              <span class="cartcount"><%= cart && cart.length %></span>
+            </a>
+           
+       <%} %>
+            
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link text-white" href="/auth/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+ 
+</div>

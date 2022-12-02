@@ -1,0 +1,7 @@
+[-] Confirm Order
+[-] Event Emitter
+[-] Cart Count 
+[-] Payment Stripe  
+[-] Notification   
+[-] req.flash 
+[-] JET tokken vaidation using mongoose  

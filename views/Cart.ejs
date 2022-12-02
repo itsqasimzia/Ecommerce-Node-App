@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles.css">
+    <title>Cart</title>
+</head>
+<body>
+  <%- include('./components/navbar.ejs'); %>
+  <div class="container bg-color mt-8">
+   <div class="w-full d-flex justify-content-end my-2">
+   </div>
+    <div class="row ">
+      <div class="col-8 d-flex justify-content-center align-items-center"> 
+            <% if(cart.length) { %> 
+              <table class="table border ">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <% cartlist.forEach((cartitem,idx)=> { %>
+              
+                <tr>
+                  <td>
+                    <img      
+                    height="50"
+                    width="50"            
+                    src="<%= cartitem.image %>"
+                    alt=<%= cartitem.productname %>
+                    >
+  
+                  </td>
+                 
+                    <th scope="row"><%= cartitem.productname %></th>
+                    <td><%= cartitem.price  %></td>
+                    <td><%= cartitem.count %></td>
+                    <td><a href="/deleteitem/<%= cartitem._id %>" class="btn btn-danger btn-sm">delete</a></td>
+                  </tr>
+
+                <% }) %>
+              </tbody>
+            </table>
+              <% } else { 
+              %> 
+                <div class="d-flex justify-content-between align-items-center">
+                  <img
+                    width="500",
+                    height="300"
+                    src="/emptycart.jpg"  
+                    />
+                </div>
+               
+              <% } %> 
+           
+              
+           
+          
+      </div>
+      <div class="col-4">
+        <form class="p-2 px-4"  action="/order" method="post">
+          <div class="form-group p-1 m-0 col-md-6 d-flex">
+            <h6 class="text-muted">Total Bill:</h6>
+            <h6 class="text-bold mx-2"><%= total %>pkr</h6>
+          </div>
+          <div class="form-row">
+            <input name="totalamount" style="display: none;" value="<%= total %>" type="text" class="hidden">
+           
+            <div class="form-group p-1 m-0 col-md-12">
+              <label for="inputEmail4">Amount</label>
+              <input 
+                type="number"
+                name="amount" 
+                class="form-control form-control-sm"  
+                placeholder="enter amount"
+                >
+            </div>
+            <div class="form-group p-1 m-0 col-md-12">
+              <label for="inputPassword4">Shipping Address</label>
+              <input 
+                type="text"  
+                name="shippingAddres"  
+                class="form-control form-control-sm"  
+                placeholder="address"
+                >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group p-1 m-0 col-md-12">
+              <label for="inputEmail4">Contact</label>
+              <input 
+                type="text" 
+                name="phone" 
+                class="form-control form-control-sm"  
+                placeholder="enter your contact number"
+                >
+            </div>
+          </div>
+          <% if(!cart.length) { %> 
+            <button type="submit"  class="btn btn-sm btn-secondary mt-2" disabled>Place Order</button>
+            <% } else { %>
+              <button type="submit"  class="btn btn-sm btn-primary mt-2">Place Order</button>
+              <% } %>
+        </form>
+      </div>
+    </div>
+   
+  </div>
+   
+</body>
+</html>

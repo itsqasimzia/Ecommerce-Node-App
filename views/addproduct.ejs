@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+<body>
+    <div>
+        <%- include('./components/navbar.ejs',{cart:cart}); %>
+       <div class="container" style="background-color: gainsboro; height: 80vh;" >
+        <div class="row pt-2">
+            <div class="col-6 px-0 mx-0">
+                <img 
+                style="width: 100%; height: 80%;"
+                 src="/images.jpg"
+                />
+            </div>
+            <div class="col-6">
+                <form name="productform" action="/inventory/product/add" enctype="multipart/form-data" method="POST">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Product Name</label>
+                        <input name="productname" type="text" class="form-control form-control-sm" required placeholder="Product Name">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Manufecturer</label>
+                        <input name="manufacturer" type="text" class="form-control form-control-sm" id="inputPassword4" required placeholder="Manufecturer">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="inputEmail4">Color</label>
+                          <input name="color" type="text" class="form-control form-control-sm" id="inputEmail4" required placeholder="Color">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="inputPassword4">Price</label>
+                          <input name="price" type="number" class="form-control form-control-sm" id="inputPassword4" required placeholder="Price">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="inputPassword4">quantity</label>
+                          <input name="quantity" type="number" class="form-control form-control-sm" id="inputPassword4" required placeholder="Quantity">
+                        </div>
+                      </div>
+                    
+                    <div class="form-group">
+                      <label for="inputAddress2">Expiry Date </label>
+                      <input name="expirydate" type="date" class="form-control form-control-sm" id="inputAddress2" >
+                    </div>
+                    <div class="form-row">
+                     
+                      <div class="form-group col-md-4">
+                        <label for="inputState">Category</label>
+                        <select id="inputState" name="categoryId" class="form-control form-control-sm" required>
+                          <option selected>Choose...</option>
+                          <% for(var i=0; i<categories.length; i++) {%>
+                            <option value=<%= categories[i]._id %>><%= categories[i].categoryname %></option>
+                         <% } %>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputAddress2">Select Image </label>
+                        <input name="fileupload" type="file"  class="form-control form-control-sm" id="inputAddress2" >
+                      </div>
+                    </div>
+                    <button type="submit" value="Save" class="btn btn-primary">Add Product</button>
+                  </form>
+            </div>
+        </div>
+       
+        </div>
+    </div>
+    
+</body>
+
+</html>

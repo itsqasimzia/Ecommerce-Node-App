@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles.css">
+    <title>Login</title>
+</head>
+<body class="loginBg" >
+    <div class="login-container border p-2 " id="logincont" style="width: 300px;height: 300px; display: flex; flex-direction: column; justify-content: center;align-items: center; ">
+        <h6>Login</h6>
+        <div class="d-flex ">
+            <form action="/auth/login" method="post" >
+                <div class="form-group p-1 m-0">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input name="email" value="iamqasimzia@gmail.com" required type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group p-0 m-0">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input name="password" value="nayapakistan" required type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="submit" class="btn btn-sm btn-primary mt-2">Login</button>
+                   <span class="mt-2">or</span> 
+                  <a href="/auth/regestration" class="btn btn-sm btn-secondary mt-2">Sign Up</a>
+                </div>
+               
+              </form>
+        </div>
+       
+    </div>
+    
+</body>
+</html>
